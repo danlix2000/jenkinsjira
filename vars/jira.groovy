@@ -1,11 +1,12 @@
-    def testIssue = [fields: [ // id or key must present for project.
-                               project: [id: '10000'],
-                               summary: 'New JIRA Created from Jenkins.',
-                               description: 'New JIRA Created from Jenkins.',
-                                // id or name must present for issueType.
-                               issuetype: [name: 'Task' ]]]
+def call(Map stageParams) {
+ 
+testIssue = [fields: [ project: [id: '10000'],
+                           summary: 'New JIRA Created from Jenkins.',
+                           description: 'New JIRA Created from Jenkins.',
+                           issuetype: [name: 'Task' ]]]
 
-    response = jiraNewIssue issue: testIssue, site: 'jiradd'
+response = jiraNewIssue issue: testIssue, site: 'LOCAL'
 
-    echo response.successful.toString()
-    echo response.data.toString()
+echo response.successful.toString()
+echo response.data.toString()
+  }
